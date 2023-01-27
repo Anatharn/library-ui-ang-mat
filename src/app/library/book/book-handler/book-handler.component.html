@@ -1,0 +1,5 @@
+<mat-form-field appearance="fill" >
+    <mat-label>Titre</mat-label>
+    <input matInput [(ngModel)]="book.title" name="title">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="submitForm()">{{btnLabel}}</button>

@@ -1,0 +1,13 @@
+<h1>Ranger le livre: {{selectedBook.title}}</h1>
+<div class="container">
+    <mat-selection-list #bookcaseList [multiple]="false" (selectionChange)="onChooseBookcase(bookcaseList.selectedOptions.selected)">
+        <mat-list-option *ngFor="let bookcase of bookcases" [value]="bookcase">
+            {{bookcase.name}}
+        </mat-list-option>
+    </mat-selection-list>
+    <mat-selection-list #rackList [multiple]="false"  (selectionChange)="onChooseRack(rackList.selectedOptions.selected)">
+        <mat-list-option *ngFor="let rack of racks" [value]="rack">
+            {{rack.name}}
+        </mat-list-option>
+    </mat-selection-list>
+</div>

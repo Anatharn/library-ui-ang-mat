@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill" >
+    <mat-label>Prénom</mat-label>
+    <input matInput [(ngModel)]="author.firstName" name="firstName">
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="author.lastName" name="lastName">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="submitForm()">{{btnLabel}}</button>

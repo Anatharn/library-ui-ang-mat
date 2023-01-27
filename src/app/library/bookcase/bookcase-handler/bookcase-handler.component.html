@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill" >
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="bookcase.name" name="name">
+</mat-form-field>
+<mat-form-field appearance="fill" >
+    <mat-label>Nombre d'étagère</mat-label>
+    <input matInput [(ngModel)]="bookcase.capacity" name="capacity" type="number">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="submitForm()">{{btnLabel}}</button>
+

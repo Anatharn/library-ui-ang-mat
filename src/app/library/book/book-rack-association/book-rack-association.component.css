@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+}
+.mat-mdc-list-base {
+    width: 50%;
+}

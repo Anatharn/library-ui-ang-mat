@@ -1,0 +1,26 @@
+<h1>Liste des auteurs de: {{book.title}}</h1>
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Rechercher un auteur</mat-label>
+      <input type="text"
+             placeholder="Auteur"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayAuthor">
+        <mat-option *ngFor="let author of filteredOptions | async" [value]="author">
+          {{author.firstName}} - {{author.lastName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+      <button mat-raised-button color="primary" (click)="submitForm()">Ajouter l'auteur au livre</button>
+  </form>
+<mat-list role="list">
+   
+    <mat-list-item *ngFor="let author of authors">
+      <button mat-icon-button (click)="deleteAuthor(author)" matListItemMeta color="accent">
+        <mat-icon>delete</mat-icon>
+      </button> 
+      {{author.firstName}} - {{author.lastName}}
+    </mat-list-item>
+</mat-list>

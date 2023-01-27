@@ -1,0 +1,10 @@
+div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.header-content {
+    display: flex;
+}
+.container {
+    justify-content: space-between;
+}
