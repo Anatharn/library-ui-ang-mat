@@ -7,7 +7,7 @@ import { HALResponse } from '../domain/hal/HALResponse';
 
 export abstract class AbstractService<T extends HALObject> {
 
-    protected baseUrl: string = "http://localhost:8081/library/";
+    protected baseUrl: string = "/api/library/";
     private selectedEntity: T;
   
     constructor(private httpClient: HttpClient, private serviceUrl: string) {
@@ -67,7 +67,6 @@ export abstract class AbstractService<T extends HALObject> {
     delete(entity: T): Observable<T>{
       console.log("delete", entity);
       return this.deleteByUrl(entity._links.self.href);
-      
     }
   
     deleteAssociation(url: string) : Observable<T>{
@@ -122,7 +121,6 @@ export abstract class AbstractService<T extends HALObject> {
       };
     }
   
-    /** Log a HeroService message with the MessageService */
     protected log(message: string) {
       console.log(message);
     }

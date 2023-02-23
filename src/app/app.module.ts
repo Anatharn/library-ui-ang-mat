@@ -19,12 +19,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
-import { NavigationComponent } from './library/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthorListComponent } from './library/author/author-list/author-list.component';
 import { BookListComponent } from './library/book/book-list/book-list.component';
 import { BookcaseListComponent } from './library/bookcase/bookcase-list/bookcase-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,  HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorHandlerComponent } from './library/author/author-handler/author-handler.component';
 import { ConfirmDialogComponent } from './library/dialog/confirm-dialog/confirm-dialog.component';
 import { BookHandlerComponent } from './library/book/book-handler/book-handler.component';
@@ -34,11 +33,11 @@ import { BookRackAssociationComponent } from './library/book/book-rack-associati
 import { BookcaseDisplayerComponent } from './atom/bookcase-displayer/bookcase-displayer.component';
 import { RackDisplayerComponent } from './atom/rack-displayer/rack-displayer.component';
 import { AuthorListDisplayerComponent } from './atom/author-list-displayer/author-list-displayer.component';
+import { ProxyHeaderInterceptor } from './interceptor/proxy-header.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     AuthorListComponent,
     BookListComponent,
     BookcaseListComponent,
@@ -75,7 +74,9 @@ import { AuthorListDisplayerComponent } from './atom/author-list-displayer/autho
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ProxyHeaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

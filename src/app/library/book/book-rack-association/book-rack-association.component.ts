@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatListOption } from '@angular/material/list';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/domain/entity/Book';
 import { Bookcase } from 'src/app/domain/entity/Bookcase';
 import { Rack } from 'src/app/domain/entity/Rack';
@@ -22,7 +23,10 @@ export class BookRackAssociationComponent implements OnInit{
   selectedRack: Rack = new Rack("");
   selectedBook: Book;
 
-  constructor(private bookService: BookService, private bookcaseService: BookcaseService, private rackService: RackService){
+  constructor(private bookService: BookService, 
+    private bookcaseService: BookcaseService, 
+    private rackService: RackService,
+    private router: Router){
     this.selectedBook = this.bookService.getSelectedEntity();
   }
 
@@ -44,6 +48,6 @@ export class BookRackAssociationComponent implements OnInit{
     opt.map(selectedOpt => this.selectedRack = selectedOpt.value);
 
     this.bookService.updateByOneUrl(this.selectedBook._links['rack'].href, this.selectedRack._links['self'].href)
-      .subscribe(_ => console.log("done!"));
+      .subscribe(_ => this.router.navigateByUrl("/book"));
   }
 }
