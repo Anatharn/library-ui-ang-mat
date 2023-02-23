@@ -1,1 +1,2 @@
-<app-bookcase-displayer [rack]="rack"/><span *ngIf="rack?.name"> - Étagère:{{rack?.name}}</span>
+<app-bookcase-displayer [rack]="rack"/>
+    <span *ngIf="rack?.name"> - Étagère:{{rack?.name | rackRank}}</span>

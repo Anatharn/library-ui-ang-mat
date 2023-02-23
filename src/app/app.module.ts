@@ -34,6 +34,7 @@ import { BookcaseDisplayerComponent } from './atom/bookcase-displayer/bookcase-d
 import { RackDisplayerComponent } from './atom/rack-displayer/rack-displayer.component';
 import { AuthorListDisplayerComponent } from './atom/author-list-displayer/author-list-displayer.component';
 import { ProxyHeaderInterceptor } from './interceptor/proxy-header.interceptor';
+import { RackRankPipe } from './pipe/rack-rank.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProxyHeaderInterceptor } from './interceptor/proxy-header.interceptor';
     BookRackAssociationComponent,
     BookcaseDisplayerComponent,
     RackDisplayerComponent,
-    AuthorListDisplayerComponent
+    AuthorListDisplayerComponent,
+    RackRankPipe
   ],
   imports: [
     BrowserModule,

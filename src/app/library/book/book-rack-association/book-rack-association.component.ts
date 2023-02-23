@@ -38,9 +38,19 @@ export class BookRackAssociationComponent implements OnInit{
     console.log('onChooseBookcase' );
     opt.map(selectedOpt =>this.selectedBookcase = selectedOpt.value);
     
+    //TODO what if the rack name is not a number
     this.rackService.findByUrl(this.selectedBookcase._links['rackList'].href)
         .subscribe(rList => {
-          this.racks = rList._embedded['rack'];
+          this.racks = rList._embedded['rack'].sort((a, b) => {
+            let an = Number.parseInt(a.name);
+            let bn = Number.parseInt(b.name)
+            if(an > bn) {
+              return 1;
+            } else if (an < bn){
+              return -1
+            }
+            return 0;
+          });
         })
   }
   onChooseRack(opt: MatListOption[]) : void {
