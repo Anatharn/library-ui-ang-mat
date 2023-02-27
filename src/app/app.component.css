@@ -1,6 +1,14 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  .example-container {
-    height: 200px;
-  }
+  flex: 1 1 auto;
+}
+.example-container {
+  height: 200px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.version {
+  font-size: small;
+}
